@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2017 at 08:47 AM
+-- Generation Time: Feb 13, 2018 at 06:45 PM
 -- Server version: 5.7.9
 -- PHP Version: 7.0.0
 
@@ -33,14 +33,17 @@ CREATE TABLE IF NOT EXISTS `disease` (
   PRIMARY KEY (`dis_id`),
   UNIQUE KEY `dis_id` (`dis_id`),
   UNIQUE KEY `dis_name` (`dis_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=182 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `disease`
 --
 
 INSERT INTO `disease` (`dis_id`, `dis_name`) VALUES
+(180, 'Arthritis'),
+(170, 'Astigmatism'),
 (101, 'Autism'),
+(169, 'Barotrauma'),
 (102, 'Bipolar Disorder'),
 (103, 'Bladder Cancer'),
 (104, 'Breast Cancer'),
@@ -53,6 +56,7 @@ INSERT INTO `disease` (`dis_id`, `dis_name`) VALUES
 (111, 'Chronic Kidney Disease'),
 (112, 'Cold Sores'),
 (113, 'Colon Cancer'),
+(171, 'Conjunctivitis'),
 (114, 'Creutzfeldt-Jakob Disease'),
 (115, 'Depression'),
 (116, 'Diabetes (Type-1)'),
@@ -60,10 +64,14 @@ INSERT INTO `disease` (`dis_id`, `dis_name`) VALUES
 (118, 'Ear Infection'),
 (119, 'Eczema'),
 (120, 'Epilepsy'),
+(172, 'Eyelid inflammation'),
 (121, 'Fibromyalgia'),
+(181, 'Fracture'),
 (122, 'Gall Stones'),
+(177, 'Gastritis'),
 (123, 'Gastroesophageal Reflux Disease (GERD)'),
 (124, 'Gestational Diabetes'),
+(173, 'Glaucoma'),
 (125, 'Gout'),
 (126, 'Graves'' Disease'),
 (127, 'Hair Loss and Blading'),
@@ -86,24 +94,51 @@ INSERT INTO `disease` (`dis_id`, `dis_name`) VALUES
 (144, 'Macular Degeneration'),
 (145, 'Malignant Mesothelioma'),
 (146, 'Melanoma'),
+(166, 'Meniere''s Disease'),
 (147, 'Multiple Sclerosis'),
 (148, 'Nail Fungus'),
 (149, 'Obesity'),
+(167, 'Otomycosis'),
 (150, 'Ovarian Cancer'),
 (151, 'Pancreatic Cancer'),
 (152, 'Polycystic Ovary Syndrome'),
 (153, 'Rheumatoid Arthritis'),
 (154, 'Rosacea'),
 (155, 'Schizophrenia'),
+(175, 'Scoliosis'),
 (156, 'Seasonal Affective Disorder'),
 (157, 'Skin Cancer'),
 (158, 'Sleep Apnea'),
 (159, 'Spider and Insect Bites and Stings'),
+(176, 'Spinal stenosis'),
+(174, 'Spondylolisthesis'),
 (160, 'Stomach Ulcers'),
 (161, 'Strep Throat'),
 (162, 'Stroke'),
+(165, 'Swimmer''s Ear'),
+(178, 'Tennis Elbow'),
 (163, 'Testicular Cancer'),
+(168, 'Tinnitus'),
+(179, 'Trigger Finger'),
 (164, 'Uterine Fibroids');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hibernate_sequence`
+--
+
+DROP TABLE IF EXISTS `hibernate_sequence`;
+CREATE TABLE IF NOT EXISTS `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(7);
 
 -- --------------------------------------------------------
 
@@ -118,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `mappings` (
   `sym_id` int(11) NOT NULL,
   PRIMARY KEY (`map_id`),
   UNIQUE KEY `map_id` (`map_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5115 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5196 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mappings`
@@ -213,22 +248,113 @@ INSERT INTO `mappings` (`map_id`, `dis_id`, `sym_id`) VALUES
 (5086, 116, 1066),
 (5087, 117, 1067),
 (5088, 117, 1068),
-(5099, 118, 1047),
-(5100, 118, 1069),
-(5101, 118, 1070),
-(5102, 118, 1071),
-(5103, 118, 1072),
-(5104, 118, 1027),
-(5105, 119, 1052),
-(5106, 119, 1073),
-(5107, 119, 1074),
-(5108, 119, 1075),
-(5109, 119, 1076),
-(5110, 120, 1060),
-(5111, 120, 1004),
-(5112, 120, 1007),
-(5113, 120, 1077),
-(5114, 120, 1078);
+(5089, 118, 1047),
+(5090, 118, 1069),
+(5091, 118, 1070),
+(5092, 118, 1071),
+(5093, 118, 1072),
+(5094, 118, 1027),
+(5095, 119, 1052),
+(5096, 119, 1073),
+(5097, 119, 1074),
+(5098, 119, 1075),
+(5099, 119, 1076),
+(5100, 120, 1060),
+(5101, 120, 1004),
+(5102, 120, 1007),
+(5103, 120, 1077),
+(5104, 120, 1078),
+(5105, 165, 1027),
+(5106, 165, 1071),
+(5107, 165, 1079),
+(5108, 165, 1080),
+(5109, 165, 1081),
+(5110, 166, 1070),
+(5111, 166, 1082),
+(5112, 166, 1083),
+(5113, 166, 1084),
+(5114, 166, 1085),
+(5115, 166, 1086),
+(5116, 167, 1071),
+(5117, 167, 1079),
+(5118, 167, 1087),
+(5119, 167, 1088),
+(5120, 168, 1086),
+(5121, 168, 1089),
+(5122, 168, 1090),
+(5123, 169, 1069),
+(5124, 169, 1070),
+(5125, 169, 1082),
+(5126, 169, 1091),
+(5127, 170, 1036),
+(5128, 170, 1047),
+(5129, 170, 1092),
+(5130, 170, 1093),
+(5131, 170, 1094),
+(5132, 171, 1095),
+(5133, 171, 1096),
+(5134, 171, 1097),
+(5135, 171, 1098),
+(5136, 172, 1095),
+(5137, 172, 1097),
+(5138, 172, 1098),
+(5139, 172, 1099),
+(5140, 172, 1100),
+(5141, 173, 1036),
+(5142, 173, 1040),
+(5143, 173, 1095),
+(5144, 173, 1101),
+(5145, 173, 1102),
+(5146, 121, 1013),
+(5147, 121, 1014),
+(5148, 121, 1015),
+(5149, 121, 1033),
+(5150, 121, 1103),
+(5151, 121, 1107),
+(5152, 174, 1013),
+(5153, 174, 1104),
+(5154, 174, 1105),
+(5155, 174, 1106),
+(5156, 175, 1013),
+(5157, 175, 1057),
+(5158, 175, 1106),
+(5159, 175, 1108),
+(5160, 176, 1013),
+(5161, 176, 1033),
+(5162, 176, 1104),
+(5163, 176, 1109),
+(5164, 137, 1056),
+(5165, 137, 1058),
+(5166, 137, 1110),
+(5167, 137, 1111),
+(5168, 137, 1112),
+(5169, 160, 1054),
+(5170, 160, 1056),
+(5171, 160, 1110),
+(5172, 160, 1112),
+(5173, 160, 1042),
+(5174, 177, 1056),
+(5175, 177, 1110),
+(5176, 177, 1112),
+(5177, 177, 1113),
+(5178, 177, 1114),
+(5179, 178, 1032),
+(5180, 178, 1115),
+(5181, 178, 1116),
+(5182, 178, 1117),
+(5183, 179, 1118),
+(5184, 179, 1119),
+(5185, 179, 1120),
+(5186, 180, 1046),
+(5187, 180, 1121),
+(5188, 180, 1122),
+(5189, 180, 1123),
+(5190, 180, 1124),
+(5191, 181, 1122),
+(5192, 181, 1123),
+(5193, 181, 1124),
+(5194, 181, 1125),
+(5195, 181, 1126);
 
 -- --------------------------------------------------------
 
@@ -244,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `symptoms` (
   PRIMARY KEY (`sym_id`),
   UNIQUE KEY `sym_id` (`sym_id`),
   UNIQUE KEY `sym_name` (`sym_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=1079 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1127 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `symptoms`
@@ -263,7 +389,7 @@ INSERT INTO `symptoms` (`sym_id`, `sym_name`, `bodypart`) VALUES
 (1010, 'Rapid Talking ', 'Brain'),
 (1011, 'Urine in Blood (Hematuria)', 'Urinary Bladder'),
 (1012, 'Dark yellow/ Bright red urine', 'Urinary Bladder'),
-(1013, 'Lower back pain', 'Back'),
+(1013, 'Back pain', 'Back'),
 (1014, 'Frequent Urination', 'Urinary Bladder'),
 (1015, 'Painful Urination', 'Urinary Bladder'),
 (1016, 'Lump in breast or armpit', 'Breast'),
@@ -283,7 +409,7 @@ INSERT INTO `symptoms` (`sym_id`, `sym_name`, `bodypart`) VALUES
 (1030, 'Pain in the insides of mouth', 'Mouth'),
 (1031, 'Pain in palms', 'Hand'),
 (1032, 'Wrist pain while holding objects', 'Hand'),
-(1033, 'Pain/ tingling in wrist at night', 'Hand'),
+(1033, 'Pain/ tingling in limbs', 'Body'),
 (1034, 'Pain extending from wrist to shoulders', 'Hand'),
 (1035, 'Weakness in one or both hands', 'Hand'),
 (1036, 'Blurry, Cloudy or Hazy Vision', 'Eyes'),
@@ -292,12 +418,12 @@ INSERT INTO `symptoms` (`sym_id`, `sym_name`, `bodypart`) VALUES
 (1039, 'Frequent prescription changes for glasses/lenses', 'Eyes'),
 (1040, 'Seeing halo around lights ', 'Eyes'),
 (1041, 'Itchy bumps', 'Body'),
-(1042, 'Loss of appetite', 'Body'),
+(1042, 'Loss of appetite', 'Stomach'),
 (1043, 'Scabbing over bumps ', 'Body'),
 (1044, 'Dry Cough', 'Body'),
 (1045, 'Impaired Short Term Memory', 'Brain'),
 (1046, 'Joint Pain', 'Body'),
-(1047, 'Headache', 'Head'),
+(1047, 'Headache', 'Brain'),
 (1048, 'Sore Throat', 'Neck'),
 (1049, 'Fatigue', 'Body'),
 (1050, 'Trouble Sleeping', 'Body'),
@@ -328,7 +454,83 @@ INSERT INTO `symptoms` (`sym_id`, `sym_name`, `bodypart`) VALUES
 (1075, 'Scaling on skin', 'Body'),
 (1076, 'Dryness of skin', 'Body'),
 (1077, 'Confusion', 'Brain'),
-(1078, 'Staring Spells', 'Brain');
+(1078, 'Staring Spells', 'Brain'),
+(1079, 'Redness in ear canal', 'Ear'),
+(1080, 'Itching in ear', 'Ear'),
+(1081, 'Inflamed lymph nodes', 'Ear'),
+(1082, 'Dizziness', 'Brain'),
+(1083, 'Vertigo', 'Brain'),
+(1084, 'Increased sweating', 'Body'),
+(1085, 'Increased heart rate', 'Heart'),
+(1086, 'Ringing, Whistling, Hissing or Roaring sounds', 'Ear'),
+(1087, 'Flaky, scaly skin in ear canal', 'Ear'),
+(1088, 'Discomfort in ear canal', 'Ear'),
+(1089, 'Unexplained loud/soft sounds', 'Ear'),
+(1090, 'High/ Low pitched sounds', 'Ear'),
+(1091, 'Popping sound in ear', 'Ear'),
+(1092, 'Eye irritation', 'Eyes'),
+(1093, 'Skewed line of sight (Squinting)', 'Eyes'),
+(1094, 'Eye strain', 'Eyes'),
+(1095, 'Redness in eye(s)', 'Eyes'),
+(1096, 'Itchiness in eye(s)', 'Eyes'),
+(1097, 'Watery eye(s)', 'Eyes'),
+(1098, 'Burning sensation in eye(s)', 'Eyes'),
+(1099, 'Swollen eyelids', 'Eyes'),
+(1100, 'Feeling that something is in the eyes', 'Eyes'),
+(1101, 'Severe eye pain', 'Eyes'),
+(1102, 'Sudden vision loss', 'Eyes'),
+(1103, 'Stiffness in back', 'Back'),
+(1104, 'Numbness in back', 'Back'),
+(1105, 'Difficulty/Pain in bending', 'Back'),
+(1106, 'Back pain while walking', 'Back'),
+(1107, 'Back pain while sleeping', 'Back'),
+(1108, 'Neck pain', 'Neck'),
+(1109, 'Pain/Discomfort while standing', 'Back'),
+(1110, 'Swollen abdominal area (Bloating)', 'Stomach'),
+(1111, 'Gas (Flatulence)', 'Stomach'),
+(1112, 'Nausea', 'Stomach'),
+(1113, 'Vomitting', 'Stomach'),
+(1114, 'Indigestion', 'Stomach'),
+(1115, 'Pain when making fist, or grip', 'Hand'),
+(1116, 'Pain while opening door', 'Hand'),
+(1117, 'Pain while raising/straightening  hand', 'Hand'),
+(1118, 'Soreness in finger or thumb', 'Hand'),
+(1119, 'Painful clicking/snapping when bending fingers', 'Hand'),
+(1120, 'Finger/thumb locks in bent or straight position', 'Hand'),
+(1121, 'Pain in finger/hand joints', 'Hand'),
+(1122, 'Reduced motion of hand', 'Hand'),
+(1123, 'Deformity in fingers/hand', 'Hand'),
+(1124, 'Redness in hand', 'Hand'),
+(1125, 'Bruising in hand', 'Hand'),
+(1126, 'Swelling in hand area', 'Hand');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userinfo`
+--
+
+DROP TABLE IF EXISTS `userinfo`;
+CREATE TABLE IF NOT EXISTS `userinfo` (
+  `userId` int(11) NOT NULL,
+  `age` int(11) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `middleName` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userinfo`
+--
+
+INSERT INTO `userinfo` (`userId`, `age`, `email`, `firstName`, `gender`, `lastName`, `middleName`, `password`) VALUES
+(2, 20, 'utsav.agrawal123@gmail.com', 'Utsav', 'Male', 'Agrawal', '', '123'),
+(6, 19, 'abc@jkl.com', 'an', 'female', 'nn', 'j', 'ggg'),
+(0, 32, 'hello@world.com', 'hello', 'male', 'world', 'nomiddlename', 'hello');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
