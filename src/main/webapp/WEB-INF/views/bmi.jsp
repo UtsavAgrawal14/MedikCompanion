@@ -46,7 +46,7 @@ pageEncoding="ISO-8859-1"%>
 		</header>
 		<div class="col-sm-12">
 			<div class="col-sm-4"></div>
-			<div class="panel panel-default col-sm-4 text-center"><a href="bmi"><h3>Start Over</h3></a></div>
+			<div class="panel panel-default col-sm-4 text-center"><h3><a href="bmi">Start Over</a></h3></div>
 			<div class="col-sm-4"></div>
 		</div>	
 		
@@ -72,7 +72,7 @@ pageEncoding="ISO-8859-1"%>
 					<button type="submit" name="submit" class="btn btn-success">Submit</button>
 				</div>
 				<div class="col-sm-offset-1 col-sm-2">	
-					<input type="reset" class="btn btn-danger">Clear form</button>
+					<input type="reset" class="btn btn-danger">Clear form
 				</div>
 			</div>	
 		</form>	
@@ -82,7 +82,7 @@ pageEncoding="ISO-8859-1"%>
 			</div>
 		</div>
 		<div class="panel panel-default col-sm-8 col-sm-offset-2 text-center">
-			<a href="${download}" target="_blank" class="text-center"><h3>${Label}</h3></a>
+			<h3></h3><a href="${download}" target="_blank" class="text-center">${Label}</a></h3>
 		</div> 
 		</div>
 		</div>	
