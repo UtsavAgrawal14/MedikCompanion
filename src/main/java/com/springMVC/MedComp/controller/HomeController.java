@@ -43,7 +43,7 @@ public class HomeController {
 		String email=reqParam.get("email");
 		String password=reqParam.get("pass");
 		String msg;
-		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+		SessionFactory sessionFactory=new Configuration().configure("/main/java/hibernate.cfg.xml").buildSessionFactory();
 		Session	session=sessionFactory.openSession();
 		session.beginTransaction();
 		String hql = "FROM Userinfo WHERE email = :email AND password = :pass";
@@ -92,7 +92,7 @@ public class HomeController {
 			pwdErr="Both password fields must match";
 		}
 		if(nameErr=="" && genderErr=="" && pwdErr==""){
-			SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+			SessionFactory sessionFactory=new Configuration().configure("/main/java/hibernate.cfg.xml").buildSessionFactory();
 			Session	session=sessionFactory.openSession();
 			session.beginTransaction();
 			session.save(user);
@@ -110,7 +110,7 @@ public class HomeController {
 	@RequestMapping(value="/diseasePredictor")
 	public ModelAndView diseasePredictor(HttpServletResponse response) throws IOException{
 		ModelAndView mv=new ModelAndView("disease");
-		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+		SessionFactory sessionFactory=new Configuration().configure("/main/java/hibernate.cfg.xml").buildSessionFactory();
 		Session	session=sessionFactory.openSession();
 		session.beginTransaction();
 		String hql = "SELECT DISTINCT bodypart FROM Symptom ORDER BY bodypart";
@@ -126,7 +126,7 @@ public class HomeController {
 	@RequestMapping(value="/predict", method=RequestMethod.POST)
 	public ModelAndView showSymptoms(@RequestParam Map<String,String> reqParam) throws IOException{
 		ModelAndView mv= new ModelAndView("disease");
-		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+		SessionFactory sessionFactory=new Configuration().configure("/main/java/hibernate.cfg.xml").buildSessionFactory();
 		String bodyPart=reqParam.get("selectedRecord");
 		Session	session=sessionFactory.openSession();
 		session.beginTransaction();
@@ -156,7 +156,7 @@ public class HomeController {
 			mv.addObject("msg",msg);
 			return mv;
 		}
-		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+		SessionFactory sessionFactory=new Configuration().configure("/main/java/hibernate.cfg.xml").buildSessionFactory();
 		Session	session=sessionFactory.openSession();
 		session.beginTransaction();
 		String hql0 = "FROM Symptom WHERE bodypart = :part";
