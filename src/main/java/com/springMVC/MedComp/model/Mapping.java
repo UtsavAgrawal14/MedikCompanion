@@ -3,25 +3,24 @@ package com.springMVC.MedComp.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the mappings database table.
  * 
  */
 @Entity
-@Table(name="Mappings")
-@NamedQuery(name="Mapping.findAll", query="SELECT m FROM Mapping m")
+@Table(name = "Mappings")
+@NamedQuery(name = "Mapping.findAll", query = "SELECT m FROM Mapping m")
 public class Mapping implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="map_id")
+	@Column(name = "map_id")
 	private int mapId;
 
-	@Column(name="dis_id")
+	@Column(name = "dis_id")
 	private int disId;
 
-	@Column(name="sym_id")
+	@Column(name = "sym_id")
 	private int symId;
 
 	public Mapping() {

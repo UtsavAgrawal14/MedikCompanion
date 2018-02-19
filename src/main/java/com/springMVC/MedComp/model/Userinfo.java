@@ -3,13 +3,12 @@ package com.springMVC.MedComp.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the userinfo database table.
  * 
  */
 @Entity
-@NamedQuery(name="Userinfo.findAll", query="SELECT u FROM Userinfo u")
+@NamedQuery(name = "Userinfo.findAll", query = "SELECT u FROM Userinfo u")
 public class Userinfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -33,9 +32,8 @@ public class Userinfo implements Serializable {
 	public Userinfo() {
 	}
 
-	
-	public Userinfo( int age, String email, String firstName, String gender, String lastName,
-			String middleName, String password) {
+	public Userinfo(int age, String email, String firstName, String gender, String lastName, String middleName,
+			String password) {
 		super();
 		this.age = age;
 		this.email = email;
@@ -45,7 +43,6 @@ public class Userinfo implements Serializable {
 		this.middleName = middleName;
 		this.password = password;
 	}
-
 
 	public int getUserId() {
 		return this.userId;

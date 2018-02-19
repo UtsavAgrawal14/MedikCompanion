@@ -3,24 +3,23 @@ package com.springMVC.MedComp.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the symptoms database table.
  * 
  */
 @Entity
-@Table(name="Symptoms")
-@NamedQuery(name="Symptom.findAll", query="SELECT s FROM Symptom s")
+@Table(name = "Symptoms")
+@NamedQuery(name = "Symptom.findAll", query = "SELECT s FROM Symptom s")
 public class Symptom implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="sym_id")
+	@Column(name = "sym_id")
 	private int symId;
 
 	private String bodypart;
 
-	@Column(name="sym_name")
+	@Column(name = "sym_name")
 	private String symName;
 
 	public Symptom() {
