@@ -11,11 +11,11 @@
  
 <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
  
-<property name="connection.url">jdbc:mysql://sql12.freesqldatabase.com:3306/sql12221158</property>
+<property name="connection.url">jdbc:mysql://65.19.141.67:3306/utsav14_diseases</property>
  
-<property name="connection.username">sql12221158</property>
+<property name="connection.username">utsav14_root</property>
  
-<property name="connection.password">bbHI5sWyFW</property>
+<property name="connection.password">rootroot</property>
  
 <!-- Connection Pool Size (built-in) -->
  
